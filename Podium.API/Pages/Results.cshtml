@@ -1,0 +1,60 @@
+﻿@page
+@model ResultsModel
+@{
+    ViewData["Title"] = "Results";
+}
+<div class="row">
+    <div class="col-md">
+        <h2>Mortgage Search</h2>
+        <p>Search our database of products</p>
+    </div>
+</div>
+
+<div class="row">
+    <form>
+        <div class="form-row">
+                <div class="md-form mt-3 form-group">
+                    <label asp-for="PropertyAmount" class="control-label">Property Amount (£):</label>
+                    <input asp-for="PropertyAmount" type="number" class="form-control" id="InputPropertyAmount" placeholder="£" />
+                </div>
+                <div class="md-form mt-3 form-group">
+                    <label asp-for="DepositAmount" class="control-label">Deposit Amount (£):</label>
+                    <input asp-for="DepositAmount" type="number" class="form-control" id="InputDepositAmount" placeholder="£" />
+                </div>
+        </div>
+        <button type="submit" value="Filter" class="btn btn-primary">Search</button>
+    </form>
+</div>
+
+<div class="row" style="padding-top: 2em">
+        <p>Your deposit amount is @Html.DisplayFor(model => model.LTVRatio) % of your Property Value.</p>
+</div>
+<div class="row">
+    <div>
+        <p>Based on your deposit amount you are eligible for the products below:</p>
+    </div>
+</div>
+        <div class="row">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="">@Html.DisplayNameFor(model => model.Lender[0].BankName)
+                            <th class="">@Html.DisplayNameFor(model => model.Lender[0].InterestRate)
+                            <th class="">@Html.DisplayNameFor(model => model.Lender[0].LoanType)
+<tbody>
+                        @if (Model.LTVRatio != 0)
+                        {
+                            @foreach (var item in Model.Lender)
+                            {
+                                <tr>
+                                    <td class="">@Html.DisplayFor(modelItem => item.BankName)</td>
+                                    <td class="">@Html.DisplayFor(modelItem => item.InterestRate)</td>
+                                    <td class="">@Html.DisplayFor(modelItem => item.LoanType)</td>
+                                </tr>
+                            }
+                        }
+                </table>
+            </div>
+
+
+

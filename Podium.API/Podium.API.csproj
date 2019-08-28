@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Pages\Customers\**" />
+    <Compile Remove="Pages\Lenders\**" />
+    <Content Remove="Pages\Customers\**" />
+    <Content Remove="Pages\Lenders\**" />
+    <EmbeddedResource Remove="Pages\Customers\**" />
+    <EmbeddedResource Remove="Pages\Lenders\**" />
+    <None Remove="Pages\Customers\**" />
+    <None Remove="Pages\Lenders\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Pages\Contact.cshtml.cs" />
+    <Compile Remove="Pages\Privacy.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Contact.cshtml" />
+    <Content Remove="Pages\Privacy.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Pages\NoAccess.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
+</Project>

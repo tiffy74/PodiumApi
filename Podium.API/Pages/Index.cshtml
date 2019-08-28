@@ -1,0 +1,57 @@
+﻿@page
+@model Podium.API.Pages.Customers.CreateModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h2>Mortgage Search</h2>
+        <p>Search our database of products</p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <form method="post">
+                <div class="form-row">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Customer.FirstName" class="control-label">First Name:</label> <br>
+                        <input asp-for="Customer.FirstName" type="text" class="form-control" id="InputFirstName" placeholder="First Name" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Customer.LastName" class="control-label">Last Name:</label> <br>
+                        <input asp-for="Customer.LastName" type="text" class="form-control" id="InputLastName" placeholder="Last Name" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label asp-for="Customer.DateOfBirth" class="control-label">Date of Birth:</label> <br>
+                        <input asp-for="Customer.DateOfBirth" type="date" class="form-control" id="InputDateOfBirth" placeholder="Date of Birth" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Customer.Email" class="control-label">Email Address</label> <br>
+                        <input asp-for="Customer.Email" type="email" class="form-control" id="InputEmailAddress" placeholder="Enter email" />
+                    </div>
+                </div>
+                <button type="submit" value="Create" class="btn btn-primary">Submit Details</button>
+            </form>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>@ViewData["success"]</p>
+                </div>
+            </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a asp-page="./Results" asp-route-id="@Model.Customer">Search Products</a>
+                    </div>
+                </div>
+
+        </div>
+        </div>
+    </div>
+
+
