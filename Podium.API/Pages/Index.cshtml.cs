@@ -48,15 +48,15 @@ namespace Podium.API.Pages.Customers
             }
             _context.Customer.Add(Customer);
             await _context.SaveChangesAsync();
-            // var CustomerId = Customer.Id;
+            
             if (ModelState.IsValid)
             {
                 var CustomerId = Customer.Id;
-                ViewData["success"] = "Thank you for submitting your details.  Your Customer Id number is:" + "  " + "LTV" + CustomerId;
-                return RedirectToPage("./Index");
-            }
-            
-            return RedirectToPage("./Index");
+                ViewData["success"] = "Thank you for submitting your details.  Your Customer Id number is:  " + "LTV- " + CustomerId;
+
+                return Page();
+            }             
+            return Page();
         }
     }
 }

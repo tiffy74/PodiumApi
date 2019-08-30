@@ -41,14 +41,19 @@
             <div class="row">
                 <div class="col-sm-12">
                     <p>@ViewData["success"]</p>
+
+
                 </div>
             </div>
-
+            @if (ViewData["success"] != null)
+            {
                 <div class="row">
                     <div class="col-sm-12">
                         <a asp-page="./Results" asp-route-id="@Model.Customer">Search Products</a>
                     </div>
                 </div>
+            }
+
 
         </div>
         </div>
