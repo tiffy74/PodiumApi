@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Podium.API.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Podium.API
 {
@@ -25,7 +26,8 @@ namespace Podium.API
                 try
                 {
                     var context = services.GetRequiredService<LenderDbContext>();
-                    context.Database.EnsureCreated();
+                    context.Database.Migrate();
+                    SeedData.Initialize(services);
                 }
                 catch (Exception ex)
                 {
